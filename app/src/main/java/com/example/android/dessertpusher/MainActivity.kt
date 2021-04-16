@@ -81,13 +81,19 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             onDessertClicked()
         }
 
-        if (savedInstanceState != null) {
-            revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
-            dessertsSold = savedInstanceState.getInt(KEY_DESSERT_SOLD, 0)
-            dessertTimer.secondsCount = savedInstanceState.getInt(KEY_TIMER_SECONDS, 0)
+//        if (savedInstanceState != null) {
+//            revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
+//            dessertsSold = savedInstanceState.getInt(KEY_DESSERT_SOLD, 0)
+//            dessertTimer.secondsCount = savedInstanceState.getInt(KEY_TIMER_SECONDS, 0)
+//            showCurrentDessert()
+//        }
+
+        savedInstanceState?.apply {
+            revenue = getInt(KEY_REVENUE, 0)
+            dessertsSold = getInt(KEY_DESSERT_SOLD, 0)
+            dessertTimer.secondsCount = getInt(KEY_TIMER_SECONDS, 0)
             showCurrentDessert()
         }
-
 
         // Set the TextViews to the right values
         binding.revenue = revenue
